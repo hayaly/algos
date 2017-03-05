@@ -12,13 +12,12 @@ void swap(int (&a)[10], int i, int j)
 
 void selectionSort(int (&a)[10], int size)
 {
-	for (int i = 0; i < size-1; ++i)
+	for (int i = 0; i < size; ++i)
 	{
 		int smallest = INT_MAX;
 		int smallestIndex = -1;
-		int j = i + 1;
-		
-		for (; j < size; ++j)
+
+		for (int j = i; j < size; j++)
 		{
 			if (a[j] < smallest)
 			{
@@ -27,16 +26,7 @@ void selectionSort(int (&a)[10], int size)
 			}
 		}
 		
-		if (a[i] > a[smallestIndex])
-		{
-			swap(a, i, smallestIndex);
-		}
-		
-		for (int k = 0; k < 10; ++k)
-		{
-			cout << a[k] << "\t";
-		}
-		cout << endl;
+		swap(a, i, smallestIndex);
 	}
 }
 
@@ -45,6 +35,11 @@ int main()
 	int a[10] = {5,7,8,3,2,1,0,9,4,6};
 	
 	selectionSort(a, 10);
+
+	for (int k = 0; k < 10; ++k)
+	{
+		cout << a[k] << "\t";
+	}
 	
 	return 0;
 }
